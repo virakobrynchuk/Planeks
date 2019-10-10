@@ -1,0 +1,2 @@
+# DjangoBlog_celery
+

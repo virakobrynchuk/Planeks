@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<script>
+function resendLink(pk) {
+    $.ajax({
+        type: "post",
+        url: "/user/resend_activation_link/" + pk + "/",
+        success: function (data) {
+            console.log(data['activation_link']);
+            alert(data["message"]);
+        }
+    });
+}
+</script>
+
+<div class="container" style="text-align: center">
+  <p>
+    You are already signed up, check your email for confirmation link
+  </p>
+  <p>
+    If you did not receive one or it is expired, we can sent it again
+  </p>
+  <p>
+    <button type="button" onclick="resendLink({{ pk }})" style="cursor: pointer">Resend confirmation link</button>
+  </p>
+</div>
+{% endblock %}

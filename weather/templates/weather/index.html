@@ -1,0 +1,17 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block content %}
+                {%  for info in all_info %}
+                <div class="alert alert-info">
+                    <div class="row">
+                        <div class="col-9">
+                            <b> City: </b>        {{ info.city }} <br>
+                            <b> Temperature: </b> {{ info.temp }} <sup>o</sup>
+                        </div>
+                        <div class="col-2 offset-1">
+                            <img src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt="weather image" class="img-thumbnail">
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+{% endblock %}

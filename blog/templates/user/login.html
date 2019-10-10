@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block link %}
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.3/examples/sign-in/signin.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <form method="post" action="{% url 'login' %}" class="form-signin" id="LoginForm">
+        {% csrf_token %}
+
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" name="email" id="email" class="form-control" required>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input id="password" type="password" name="password" class="form-control">
+        <div class="form-group">
+            <button type="submit" id="SubmitLogin" value="Login" class="btn btn-success">Login</button>
+        </div>
+    </form>
+
+    <script>
+        login = submit_form.bind(null, submitRegistration, "SubmitLogin", null);
+        document.getElementById("LoginForm").addEventListener("submit", login);
+    </script>
+{% endblock %}
